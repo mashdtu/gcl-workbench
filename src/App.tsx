@@ -53,7 +53,11 @@ function InputSection() {
   );
 }
 
+const MODES = ["Parser", "Compiler", "AST", "Program Graph", "DOT Source", "Interpreter", "RISC-V", "Floyd-Hoare", "Security Analyser", "Model Checking", "Sign Analyser"];
+
 function OutputSection() {
+  const [selected, setSelected] = useState("Parser");
+
   return (
     <div className="panel output-panel">
       <div className="panel-header">
@@ -61,17 +65,15 @@ function OutputSection() {
       </div>
       <div className="output-panel-contents">
         <div className="panel-buttons">
-          <button className="btn">Parser</button>
-          <button className="btn">Compiler</button>
-          <button className="btn">AST</button>
-          <button className="btn">Program Graph</button>
-          <button className="btn">DOT Source</button>
-          <button className="btn">Interpreter</button>
-          <button className="btn">RISC-V</button>
-          <button className="btn">Floyd-Hoare</button>
-          <button className="btn">Security Analyser</button>
-          <button className="btn">Model Checking</button>
-          <button className="btn">Sign Analyser</button>
+          {MODES.map((mode) => (
+            <button
+              key={mode}
+              className={`btn${selected === mode ? " btn-active" : ""}`}
+              onClick={() => setSelected(mode)}
+            >
+              {mode}
+            </button>
+          ))}
         </div>
         <p>actual output here</p>
       </div>

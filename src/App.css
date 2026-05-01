@@ -257,6 +257,16 @@
   }
 }
 
+.btn-active {
+  background: var(--accent);
+  border-color: var(--accent);
+
+  &:hover {
+    background: var(--accent);
+    opacity: 0.85;
+  }
+}
+
 .darkmode-btn {
   padding: 20px;
   width: 28px;
@@ -273,7 +283,7 @@
   }
 }
 
-.output-panel > .panel-buttons {
+.output-panel-contents > .panel-buttons {
   text-align: left;
   padding-bottom: 6px;
   border-bottom: 1px solid var(--border);
