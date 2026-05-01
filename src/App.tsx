@@ -53,7 +53,16 @@ function InputSection() {
   );
 }
 
-const MODES = ["Parser", "Compiler", "AST", "Program Graph", "DOT Source", "Interpreter", "RISC-V", "Floyd-Hoare", "Security Analyser", "Model Checking", "Sign Analyser"];
+const MODES = [
+  "Parser",
+  "Compiler",
+  "AST",
+  "Interpreter",
+  "BiGCL",
+  "RISC-V",
+  "Security",
+  "Sign",
+];
 
 function OutputSection() {
   const [selected, setSelected] = useState("Parser");
@@ -69,8 +78,7 @@ function OutputSection() {
             <button
               key={mode}
               className={`btn${selected === mode ? " btn-active" : ""}`}
-              onClick={() => setSelected(mode)}
-            >
+              onClick={() => setSelected(mode)}>
               {mode}
             </button>
           ))}
